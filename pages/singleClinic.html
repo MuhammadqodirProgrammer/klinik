@@ -63,12 +63,12 @@
    const doctor_id = localStorage.getItem("doctor_id")
    const owerlay_login = document.querySelector(".owerlay_login")
    const login_form = document.querySelector(".login_form")
-   const patient_password = document.querySelector(".patient_password")
-   const patient_name = document.querySelector(".patient_name")
-   const patient_lname = document.querySelector(".patient_lname")
-   const patient_age = document.querySelector(".patient_age")
-   const patient_phone_number = document.querySelector(".patient_phone_number")
-   const patient_email = document.querySelector(".patient_email")
+   const patient_password = document.querySelector("#patient_password")
+   const patient_name = document.querySelector("#patient_name")
+   const patient_lname = document.querySelector("#patient_lname")
+   const patient_age = document.querySelector("#patient_age")
+   const patient_phone_number = document.querySelector("#patient_phone_number")
+   const patient_email = document.querySelector("#patient_email")
 const doctorList = document.querySelector(".doctor_list");
 const List2 = document.querySelector(".backendListOrder");
 owerlay_login.classList.add("active")
@@ -114,9 +114,17 @@ const Deliveries = () => {
     })
     .catch((err) => console.log(err));
 };
+const user_id =localStorage.getItem("user_token")
+if(!user_id) {
+  owerlay_login.classList.add("active")
+}else{
+  owerlay_login.classList.remove("active")
+
+}
+console.log(user_id);
+
 login_form.addEventListener("submit" , (e) =>{
   e.preventDefault()
-
   const data = {
     patient_password:patient_password?.value,
 patient_name:patient_name?.value,
@@ -135,7 +143,12 @@ patient_phone_number:patient_phone_number?.value,
       .then((res) => {
         return res.json();
       })
-      .then(data =>console.log(data)).catch(er =>console.log(er))
+      .then(data =>{
+        if(data?.token){
+owerlay_login.classList.remove("active")
+          localStorage.setItem("user_token" ,data?.token)
+        }
+      }).catch(er =>console.log(er))
 })
 
 Deliveries();
@@ -150,11 +163,13 @@ e.preventDefault()
 })
 
 const navbat_btn =document.querySelector(".navbat_btn")
-
 navbat_btn.addEventListener("click" ,(e) =>{
 e.preventDefault()
 fetch(`http://localhost:3000/api/queue/${doctor_id}`, {
     method: "POST",
+    headers: {
+      "Authorization": `Bearer ${user_id}`,
+		},
   })
     .then((res) => {
       return res.json();
