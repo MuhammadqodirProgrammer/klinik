@@ -1,0 +1,203 @@
+
+.not_active_section{
+    display: none;
+}
+.active_section{
+    display: block;
+}
+
+.section_header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.section_header h3{
+    margin: 0;
+    padding: 0;
+}
+.general_btn{
+    padding: 5px 12px;
+    border-radius: 5px;
+    background-color: teal;
+    border: 1px solid teal;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.9;
+}
+
+.general_btn:hover{
+    transition: all 0.5s ease;
+    background-color: rgb(3, 153, 153);
+  
+}
+
+.close_btn ,.clinic_delete{
+    background-color: rgba(215, 17, 17, 0.947);
+    border: none;
+    color: #fff;
+    border: 1px solid red;
+}
+.close_btn:hover , .clinic_delete:hover{
+    background-color: rgba(243, 12, 12, 0.946);
+    
+}
+/* madal style *//* modal style started */
+.owerlay{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    position: fixed;
+    display: none;
+    z-index: 999 !important;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+}
+.owerlay_login{
+    background: rgba(0, 0, 0);
+}
+.modal_wrapper{
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 999 !important;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.doctor_modal_wrapper{
+width: 500px ;
+}
+.modal_wrapper h4{
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+
+}
+
+
+
+.active{
+    display: flex !important;
+}
+
+
+/* form */
+
+.form {
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type='text'],
+input[type='date'],
+input[type='number'],
+input[type='file'],
+input[type='password'],
+textarea,
+select {
+    width: 100%;
+    padding: 6px 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-top: 6px;
+}
+
+.flexer{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+margin-top: 15px;
+}
+.flexer_inputs{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+/* clinic list */
+.clinic_list ,.service_list ,.doctor_list{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 10px;
+}
+/* card style */
+
+.card_box{
+    width: 270px;
+    height: auto;
+    min-height: 300px;
+    border: 1px solid teal;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+padding-bottom: 15px;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.service_card_box{
+    width: 270px;
+    height: 200px !important;
+    border: 1px solid teal;
+    padding: 15px;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+overflow: hidden;
+border-radius: 15px;
+padding-bottom: 0;
+
+}
+.card_top{
+    width: 100%;
+    height: 150px;
+    border: none;
+}
+.card_top_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+
+}
+.card_body{
+    padding: 15px;
+    border: none;
+
+}
+
+.card_box_footer{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 15px;
+}
+.service_footer{
+margin-top: 15px;
+margin-left: 0;
+}
+
+.card_body_pr{
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 5px;
+}
+
+/* modal */
+

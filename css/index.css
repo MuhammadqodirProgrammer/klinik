@@ -1,0 +1,77 @@
+
+.new_slider{
+    background-color: transparent;
+    height: 450px !important;
+    display: flex !important;
+    gap: 20px;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+
+
+
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+::-webkit-scrollbar {
+    height: 5px !important;
+    width: 4px !important;
+    background: black !important;
+}
+
+.doctor_frapper{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+/* card style */
+
+.card_box{
+    width: 270px;
+    height: 380px;
+    border: 1px solid teal;
+border-radius: 15px;
+overflow: hidden;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.card_top{
+    width: 100%;
+    height: 180px !important;
+    border: none;
+}
+.card_top_img_index{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-height: 180px !important;
+    border: none;
+    overflow: hidden;
+
+}
+.card_body{
+    padding: 15px;
+    border: none;
+
+}
+
+.card_box_footer{
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-left: 15px;
+}
+.service_footer{
+margin-top: 15px;
+margin-left: 0;
+}
+
+.card_body_pr{
+    font-size: 15px;
+    color: gray;
+    margin-bottom: 5px;
+}
