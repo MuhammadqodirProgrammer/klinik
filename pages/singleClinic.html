@@ -62,7 +62,9 @@
   <script>
    const doctor_id = localStorage.getItem("doctor_id")
    const owerlay_login = document.querySelector(".owerlay_login")
+   const login_form = document.querySelector(".login_form")
    const patient_password = document.querySelector(".patient_password")
+   const patient_name = document.querySelector(".patient_name")
    const patient_lname = document.querySelector(".patient_lname")
    const patient_age = document.querySelector(".patient_age")
    const patient_phone_number = document.querySelector(".patient_phone_number")
@@ -70,7 +72,7 @@
 const doctorList = document.querySelector(".doctor_list");
 const List2 = document.querySelector(".backendListOrder");
 owerlay_login.classList.add("active")
-
+console.log(login_form ,"ffsefe");
 const Deliveries = () => {
   fetch(`http://localhost:3000/api/doctor/${doctor_id}`, {
     method: "GET",
@@ -112,15 +114,29 @@ const Deliveries = () => {
     })
     .catch((err) => console.log(err));
 };
+login_form.addEventListener("submit" , (e) =>{
+  e.preventDefault()
 
-fetch(`http://localhost:3000/api/queue/${doctor_id}`, {
-    method: "POST",
-    body:JSON
-  })
-    .then((res) => {
-      return res.json();
+  const data = {
+    patient_password:patient_password?.value,
+patient_name:patient_name?.value,
+patient_lname:patient_lname?.value,
+patient_age:patient_age?.value,
+patient_phone_number:patient_phone_number?.value,
+ patient_email:patient_email?.value,
+  }
+  fetch(`http://localhost:3000/api/register`, {
+      method: "POST",
+      headers: {
+			"Content-Type": "application/json",
+		},
+      body:JSON.stringify(data)
     })
-    .then(data =>console.log(data))
+      .then((res) => {
+        return res.json();
+      })
+      .then(data =>console.log(data)).catch(er =>console.log(er))
+})
 
 Deliveries();
 // Deliveries2();
